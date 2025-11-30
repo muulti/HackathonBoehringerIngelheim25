@@ -1,62 +1,33 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/_Fj1ryTe)
-# Hackathon Boehringer – Repositorio del Equipo
+Project developed for the Boehringer Ingelheim 2025 Hackathon. Boehringer Ingelheim is a global pharmaceutical company focused on improving human and animal health through research-driven innovation. This repo supports a challenge centered on accelerating insights in lung-cancer–related data.
 
-Este repositorio se ha generado a partir de la **plantilla oficial** de la hackathon.
+---
 
-## ⚖️ Licencia
-Este proyecto se distribuye bajo **Apache License 2.0**. Las contribuciones incluyen una concesión de derechos de **patentes** asociadas al código aportado, según los términos de la licencia.
-Consulta el archivo [`LICENSE`](LICENSE) para más detalle.
+## Overview
 
-## 📂 Estructura del repositorio
-- `src/` → Código fuente principal
-- `tests/` → Pruebas automáticas
-- `docs/` → Documentación del proyecto
-- `data/` → Datos locales (no versionados; no subir datos sensibles)
-- `.github/workflows/` → Integración continua (CI)
+This repository contains a full-stack prototype built with **Flask** and **SQLite**.  
+It collects and processes patient information to surface insights about gaps and bottlenecks in the **lung-cancer patient journey**, and includes a small demo for **cancer-risk estimation** using a simple form-driven workflow.
 
-## 🚀 Cómo empezar
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/TU-ORG/equipo-nombre.git
-   ```
-2. Instala dependencias (elige tu stack):
-   - **Python**:
-     ```bash
-     pip install -r req.txt  # si existe
-     pip install pytest
-     ```
-      ```bash
-     #Ejecutar con IDE o Python3 en app.py de dentro de src
-     ```
-   - **Node**:
-     ```bash
-     npm ci
-     ```
-3. Ejecuta tests:
-   - **Python**: `pytest -q`
-   - **Node**: `npm test`
+---
 
-## 🧪 Criterios de evaluación (orientativo)
-- Claridad del problema y solución
-- Calidad técnica (código, tests, CI)
-- Demo funcional / UX
-- Impacto y viabilidad
-- Presentación / pitch
+## Features
 
-## 🔐 Seguridad y datos
-- No subas secretos (tokens, claves) ni datos sensibles.
-- Usa variables de entorno y `.env` (ignorado por Git).
+- Flask backend exposing clean web endpoints  
+- SQLite database integration  
+- Patient ingestion, retrieval, and analysis  
+- Visual exploration of timelines, gaps, and delays  
+- Prototype risk-score model via form submission  
 
-## 📦 Entrega final
-- Crear un **Release** con etiqueta `v1.0-hackathon` con README actualizado, instrucciones y demo.
-- Powerpoint proyecto final
-- Mockup si aplica
+---
 
-## 👥 Créditos
-Integrantes:
-Diego Pomares Otero,
+## Installation
+
+```bash
+pip install -r req.txt
+```
+
+
+The team:
 Sofía Granja de Zuasnabar,
 Juancarlos Díaz Yera,
 Luis Sárries Mas
-
-Mentor:
+and myself.
