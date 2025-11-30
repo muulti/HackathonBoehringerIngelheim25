@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Pacientes - Sistema Patient Journey</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/"><h2>Sistema Patient Journey</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="evaluacion.html" class="nav-btn">
+                    📋 Evaluación de Riesgo
+                </a>
+                <a href="listado.html" class="nav-btn active">
+                    👥 Listado de Pacientes
+                </a>
+                <a href="dashboard.html" class="nav-btn">
+                    📊 Dashboard & KPIs
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>📋 Listado de Pacientes</h1>
+            <p>Selecciona un paciente para ver su journey detallado</p>
+        </div>
+
+        <!-- Búsqueda -->
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="🔍 Buscar por ID, edad o sexo...">
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <h3>⏳ Cargando pacientes...</h3>
+        </div>
+
+        <!-- Lista de Pacientes -->
+        <div id="patient-list" style="display: none;">
+            <!-- Los pacientes se insertan aquí dinámicamente -->
+        </div>
+
+        <!-- Sin resultados -->
+        <div id="no-results" style="display: none; text-align: center; padding: 3rem; color: #6b7280;">
+            <h3>🔍 No se encontraron pacientes</h3>
+            <p>Intenta con otros términos de búsqueda</p>
+        </div>
+    </div>
+    <script src="../static/js/listado.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey del Paciente - Sistema Patient Journey</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/"><h2>Sistema Patient Journey</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="/evaluacion.html" class="nav-btn">
+                    📋 Evaluación de Riesgo
+                </a>
+                <a href="/listado.html" class="nav-btn">
+                    👥 Listado de Pacientes
+                </a>
+                <a href="/dashboard.html" class="nav-btn">
+                    📊 Dashboard & KPIs
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="loading" class="loading">
+            <h2>⏳ Cargando información del paciente...</h2>
+        </div>
+
+        <div id="error" class="error-message" style="display: none;">
+            <h3>❌ Error</h3>
+            <p id="error-message"></p>
+            <button class="btn btn-primary" onclick="window.location.href='/listado.html'" style="margin-top: 1rem;">
+                Volver al Listado
+            </button>
+        </div>
+
+        <div id="content" style="display: none;">
+            <!-- Header del Paciente -->
+            <div class="patient-header">
+                <h1>📋 Journey del Paciente #<span id="patient-id"></span></h1>
+                <div class="patient-info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Edad</div>
+                        <div class="info-value" id="patient-edad">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Sexo</div>
+                        <div class="info-value" id="patient-sexo">-</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Tiempo Total</div>
+                        <div class="info-value"><span id="tiempo-total">-</span> días</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Desplazamientos</div>
+                        <div class="info-value" id="desplazamientos">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen del Journey -->
+            <h2>📊 Resumen del Journey</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon">✅</div>
+                    <div class="summary-value" id="fases-completadas">-</div>
+                    <div class="summary-label">Fases Completadas</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">🔄</div>
+                    <div class="summary-value" id="fases-en-curso">-</div>
+                    <div class="summary-label">Fases en Curso</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon">⏸️</div>
+                    <div class="summary-value" id="fases-no-iniciadas">-</div>
+                    <div class="summary-label">Fases No Iniciadas</div>
+                </div>
+            </div>
+
+            <!-- Alerta de Cuello de Botella -->
+            <div id="bottleneck-alert" style="display: none;"></div>
+
+            <!-- Timeline de Fases -->
+            <h2>🔄 Timeline del Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div id="timeline-fases"></div>
+            </div>
+
+            <!-- Lista de Eventos -->
+            <h2>📅 Registro de Eventos</h2>
+            <div class="events-list" id="events-list"></div>
+
+            <!-- Botones de Acción -->
+            <div class="button-container" style="margin-top: 2rem;">
+                <button class="btn btn-secondary" onclick="window.location.href='/listado.html'">
+                    ← Volver al Listado
+                </button>
+                <button class="btn btn-primary" onclick="window.location.href='/dashboard.html'">
+                    Ver Dashboard General
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/paciente_detail.js"></script>
+</body>
+</html>

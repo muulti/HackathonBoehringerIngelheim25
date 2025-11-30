@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Riesgo - Sistema Patient Journey</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/"><h2>Sistema Patient Journey</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="evaluacion.html" class="nav-btn active">
+                    📋 Evaluación de Riesgo
+                </a>
+                <a href="listado.html" class="nav-btn">
+                    👥 Listado de Pacientes
+                </a>
+                <a href="dashboard.html" class="nav-btn">
+                    📊 Dashboard & KPIs
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Sistema de Evaluación de Riesgo</h1>
+            <p>Cáncer de Pulmón - Diagnóstico Acelerado</p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="progress-container">
+            <div class="progress-steps" id="progressSteps">
+                <div class="step active" data-step="0">
+                    <div class="step-icon">👤</div>
+                    <span>Datos Demográficos</span>
+                </div>
+                <div class="step" data-step="1">
+                    <div class="step-icon">⚠️</div>
+                    <span>Factores de Riesgo</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-icon">❤️</div>
+                    <span>Estilo de Vida</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-icon">📊</div>
+                    <span>Síntomas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Step 0: Demográficos -->
+            <div class="form-step active" id="step0">
+                <h3>Información Demográfica</h3>
+                <div class="form-group">
+                    <label>ID del paciente (Información que debe saber el profesional)</label>
+                    <input type="number" id="patient-id" min="1"
+                            onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187 && event.keyCode !== 107 && event.keyCode !== 109">
+                </div>
+                <div class="form-group">
+                    <label>Edad</label>
+                    <input type="number" id="age" min="1" max="120" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187 && event.keyCode !== 107 && event.keyCode !== 109">
+                </div>
+                <div class="form-group">
+                    <label>Sexo</label>
+                    <div class="button-group">
+                        <button type="button" class="toggle-btn" data-field="sex" data-value="0">Masculino</button>
+                        <button type="button" class="toggle-btn" data-field="sex" data-value="1">Femenino</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: Factores de Riesgo -->
+            <div class="form-step" id="step1">
+                <h3>Factores de Riesgo</h3>
+                <p class="subtitle">Indique el nivel de cada factor (0=No padece, 9=Muy alto)</p>
+                
+                <div class="form-group">
+                    <label>Nivel de tabaquismo</label>
+                    <div class="range-container">
+                        <input type="range" id="smoking_level" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Exposición al humo (fumador pasivo)</label>
+                    <div class="range-container">
+                        <input type="range" id="passive_smoker" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Riesgos ocupacionales</label>
+                    <div class="range-container">
+                        <input type="range" id="occupation_hazard" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Antecedentes familiares de cáncer de pulmón</label>
+                    <div class="button-group">
+                        <button type="button" class="toggle-btn active" data-field="genetic_risk" data-value="0">No</button>
+                        <button type="button" class="toggle-btn" data-field="genetic_risk" data-value="1">Sí</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Enfermedad pulmonar crónica</label>
+                    <div class="button-group">
+                        <button type="button" class="toggle-btn active" data-field="chronic_lung_disease" data-value="0">No</button>
+                        <button type="button" class="toggle-btn" data-field="chronic_lung_disease" data-value="1">Sí</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Estilo de Vida -->
+            <div class="form-step" id="step2">
+                <h3>Estilo de Vida y Entorno</h3>
+                <p class="subtitle">Indique el nivel de cada factor (0=No padece, 9=Muy alto)</p>
+                
+                <div class="form-group">
+                    <label>Exposición a contaminación del aire</label>
+                    <div class="range-container">
+                        <input type="range" id="air_pollution" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Consumo de alcohol</label>
+                    <div class="range-container">
+                        <input type="range" id="alcohol_use" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Obesidad</label>
+                    <div class="range-container">
+                        <input type="range" id="obesity" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Síntomas -->
+            <div class="form-step" id="step3">
+                <h3>Síntomas</h3>
+                <p class="subtitle">Indique la intensidad de cada síntoma (0=No padece, 9=Muy intenso)</p>
+                
+                <div class="form-group">
+                    <label>Dolor torácico</label>
+                    <div class="range-container">
+                        <input type="range" id="chest_pain" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dificultad para respirar</label>
+                    <div class="range-container">
+                        <input type="range" id="shortness_of_breath" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Sibilancias</label>
+                    <div class="range-container">
+                        <input type="range" id="wheezing" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tos con sangre (hemoptisis)</label>
+                    <div class="button-group">
+                        <button type="button" class="toggle-btn active" data-field="hemoptysis_level" data-value="0">No</button>
+                        <button type="button" class="toggle-btn" data-field="hemoptysis_level" data-value="1">Sí</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Fatiga</label>
+                    <div class="range-container">
+                        <input type="range" id="fatigue" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dificultad para tragar</label>
+                    <div class="range-container">
+                        <input type="range" id="swallowing_difficulty" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dedos en palillo de tambor</label>
+                    <div class="range-container">
+                        <input type="range" id="clubbing_nails" min="0" max="9" value="0">
+                        <span class="range-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Pérdida de peso (kg) desde aparición de los síntomas</label>
+                    <input type="number" id="weight_loss" step="0.1" placeholder="Ej: 4.5" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187 && event.keyCode !== 107 && event.keyCode !== 109">
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="button-container">
+                <button id="prevBtn" class="btn btn-secondary" style="display: none;">Anterior</button>
+                <button id="nextBtn" class="btn btn-primary">Siguiente</button>
+                <button id="submitBtn" class="btn btn-success" style="display: none;">Calcular Riesgo</button>
+            </div>
+        </div>
+
+        <!-- Result Container -->
+        <div class="result-container" id="resultContainer" style="display: none;">
+            <div class="result-icon" id="resultIcon"></div>
+            <h2>Evaluación Completada</h2>
+            <p class="result-level" id="resultLevel"></p>
+            
+            <div class="result-recommendation" id="resultRecommendation"></div>
+            
+            <div class="result-note">
+                <strong>Nota:</strong> Se recuerda que estos datos deben ser usados como soporte y para posible prevención, pero nunca como un diagnóstico final.
+            </div>
+            
+            <div class="button-container">
+                <button id="newEvalBtn" class="btn btn-secondary">Nueva Evaluación</button>
+                <button id="downloadBtn" class="btn btn-primary">Descargar Datos</button>
+                <button id="send-btn" class="btn btn-secondary">Guardar en el sistema</button>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p>Herramienta creada por D14b3t3s</p>
+        </div>
+    </div>
+
+    <script src="../static/js/evaluacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard & KPIs - Sistema Patient Journey</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/"><h2>Sistema Patient Journey</h2></a>
+            </div>
+            <div class="nav-menu">
+                <a href="evaluacion.html" class="nav-btn">
+                    📋 Evaluación de Riesgo
+                </a>
+                <a href="listado.html" class="nav-btn">
+                    👥 Listado de Pacientes
+                </a>
+                <a href="dashboard.html" class="nav-btn active">
+                    📊 Dashboard & KPIs
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Dashboard & KPIs del Patient Journey</h1>
+            <p>Visualización de datos y análisis de cuellos de botella</p>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <div class="kpi-icon">⏱️</div>
+                <div class="kpi-content">
+                    <h3>Tiempo Promedio</h3>
+                    <p class="kpi-value" id="avgTime">-</p>
+                    <span class="kpi-label">Desde sospecha a diagnóstico</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon">👥</div>
+                <div class="kpi-content">
+                    <h3>Pacientes Evaluados</h3>
+                    <p class="kpi-value" id="totalPatients">-</p>
+                    <span class="kpi-label">Total en el sistema</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon">🎯</div>
+                <div class="kpi-content">
+                    <h3>Riesgo Alto</h3>
+                    <p class="kpi-value" id="highRisk">-</p>
+                    <span class="kpi-label">Derivados a Oncología</span>
+                </div>
+            </div>
+
+            <div id = "prova" class="kpi-card">
+                <div class="kpi-icon">📉</div>
+                <div class="kpi-content">
+                    <h3>Reducción de Tiempo</h3>
+                    <p class="kpi-value" id="timeReduction">-</p>
+                    <span class="kpi-label">vs. proceso tradicional</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Journey Timeline -->
+        <div class="journey-container">
+            <h2>Patient Journey - Fases del Proceso</h2>
+            <div class="journey-timeline">
+                <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">1</span>
+                        <h3>Atención Primaria</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase1">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Cuellos de botella:</span>
+                            <span class="metric-value warning">Citas disponibles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">2</span>
+                        <h3>Análisis Básico</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase2">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Cuellos de botella:</span>
+                            <span class="metric-value warning">Resultados analíticas</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">3</span>
+                        <h3>Análisis Completo</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase3">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Cuellos de botella:</span>
+                            <span class="metric-value warning">Resultados analíticas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">4</span>
+                        <h3>Oncología</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase4">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Cuellos de botella:</span>
+                            <span class="metric-value warning">Agenda especialista</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">5</span>
+                        <h3>Pruebas Avanzadas</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase5">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Cuellos de botella:</span>
+                            <span class="metric-value warning">TAC/PET disponibilidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-phase">
+                    <div class="phase-header">
+                        <span class="phase-number">6</span>
+                        <h3>Diagnóstico Final</h3>
+                    </div>
+                    <div class="phase-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Tiempo promedio:</span>
+                            <span class="metric-value" id="fase6">-</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Siguiente paso:</span>
+                            <span class="metric-value success">Plan terapéutico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gap Analysis -->
+        <div class="gap-container">
+            <h2>Análisis de Gaps y Oportunidades de Mejora</h2>
+            <div class="gap-list">
+                <div class="gap-item critical">
+                    <div class="gap-priority">CRÍTICO</div>
+                    <div class="gap-content">
+                        <h4>Tiempo de espera para Oncología</h4>
+                        <p>Media de 14 días desde derivación. Objetivo: reducir a 5 días para casos de alto riesgo.</p>
+                        <span class="gap-action">→ Acción: Priorizar agenda para evaluaciones digitales positivas</span>
+                    </div>
+                </div>
+
+                <div class="gap-item high">
+                    <div class="gap-priority">ALTO</div>
+                    <div class="gap-content">
+                        <h4>Coordinación entre servicios</h4>
+                        <p>Falta de "comunicación" entre Atención Primaria y Oncología causa retrasos.</p>
+                        <span class="gap-action">→ Acción: Implementar sistema de mensajería integrado</span>
+                    </div>
+                </div>
+
+                <div class="gap-item medium">
+                    <div class="gap-priority">MEDIO</div>
+                    <div class="gap-content">
+                        <h4>Acceso a pruebas diagnósticas</h4>
+                        <p>TAC y PET con listas de espera de 3 semanas en entorno rural.</p>
+                        <span class="gap-action">→ Acción: Convenios con centros privados para casos urgentes</span>
+                    </div>
+                </div>
+
+                <div class="gap-item improved">
+                    <div class="gap-priority">✓ MEJORADO</div>
+                    <div class="gap-content">
+                        <h4>Evaluación inicial de riesgo</h4>
+                        <p>Sistema digital permite clasificación inmediata y citación y gestión con especializados.</p>
+                        <span class="gap-action">→ Impacto: Ahorro de hasta semanas en el proceso de diagnóstico por la prevención y gestión de citas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="dashboard-actions">
+            <a href="evaluacion.html" class="btn btn-primary btn-large">
+                ➕ Realizar Nueva Evaluación
+            </a>
+        </div>
+    </div>
+    <script src="../static/js/dashboard.js"></script>
+</body>
+</html>
